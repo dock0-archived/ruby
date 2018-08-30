@@ -1,0 +1,15 @@
+sudo: required
+dist: trusty
+services:
+- docker
+install:
+- docker build -t test .
+script:
+- docker run -ti test /bin/true
+- docker run -ti test /bin/bash --version
+- docker run -ti test /usr/bin/ruby --version
+- docker run -ti test /usr/bin/bundler --version
+notifications:
+  email: false
+  slack:
+    secure: lBlxbyWtyCEmik5bemkJW4ewjQwiUyLv3ZglyFGt+vU39C4q3wVDl5TnLdSA82WcUu9vAFlcJjrJBawwrpeRxM6tui97dX2Bhhq0bA9pQkYkQLvKcybFRX9+eP0b1l+NDd/PUeaSCDYESQi3Fryzl8P1P02lNOi598rc1pUoQwMfovGhuANacr6agnb3P48J5qZun7vvQ8zS7bvIfAC7g1MV/vhpuvRvlMIugMYkvNrTMy6KYUQOt1/Pd5uvVgz9f9s3B1HLZGZ69g+cGvjbiaTOUVN5FQRJcoNCj3hVM1wUYn4cMzqurHIV6kNB579FzhGCwZJZIN0X4mjnTzOfpUV3WKjV0S7bcYel+CS7NG73Irsd/QZp1Dpj0yih/Qe6lFSvlKZNWjzZwdhMiXrBoWC5P0pW+RNd5mI0jHp7zIF86lgLy3S67Rw4bwNttjLFcwiPkDBdL+AWLBS64lv+7CoE3CLO0p4xRUAjqKOBkRfohqVUm+BmHMYoVypDQsegmhf0Ygtu8Zcgw7xqq6BVNzs2P66GKNtU0gLSuNcL3Pse9ERY/9Y5uOXGqodsEXrVZD6GY1ZaXaFb7nYRty0NIQZoiWUonfPVVB75cpH/+VCcqQJyJyt/xWD/hGT06ThLy/PKvzbbvugPZBX2Z4ROjZnXysbIa3gZpJO0zMkTmtM=
